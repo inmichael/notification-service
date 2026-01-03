@@ -3,12 +3,15 @@ version: "3.9"
 services:
   notification-service:
     container_name: notification-service
+    image: mondocinema/notification-service:dev
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
     env_file:
       - .env.production.local
+    expose:
+      - "9102"
     networks:
       - mondocinema
 
